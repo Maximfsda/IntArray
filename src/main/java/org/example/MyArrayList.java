@@ -157,4 +157,33 @@ public class MyArrayList implements IntList {
 
     public class IntegerList {
     }
+
+    private void sort(int [] array){
+        for (int i = 1; i < array.length; i++) {
+            int tmp = array[i];
+            int j = i;
+            while (j>0 && array[j-1] >= tmp){
+                array[i] = array[j-1];
+                j--;
+            }
+            array[j]= tmp;
+        }
+    }
+    private int binarySearch(int[] array,int element){
+        int min = 0;
+        int max = array.length - 1;
+        while ((min <= max)){
+            int mid= (min + max)/2;
+            if(element == array[mid]){
+                return mid;
+            }
+            if(element < array[mid]){
+                max = mid -1;
+            }
+            else{
+                min = mid +1;
+            }
+        }
+        return -1;
+    }
 }
